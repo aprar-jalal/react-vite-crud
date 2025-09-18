@@ -1,29 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../../component/loader/Loader";
+import useFetch from "../../component/custom/useFetch";
+import { Link } from "react-router-dom";
 
 function AllUsers() {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState("");
-  const [isloading, setLoader] = useState(true);
-  const getAllUsers = async () => {
-    try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_BURL_USERS}/users`
-      );
-      setUsers(data.users);
-      setError(null);
-      console.log(data.users);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoader(false);
-    }
-  };
-  useEffect(() => {
-    getAllUsers();
-  }, []);
-
+  const { data, error, isloading } = useFetch("users");
   if (isloading) {
     return (
       <span className="d-flex justify-content-center align-items-center vh-100 bg-secondary-subtle bg-opacity-50 backdrop-blur">
@@ -37,23 +19,24 @@ function AllUsers() {
   return (
     <div className="container mt-5">
       <div className="row d-flex justify-content-center align-items-center flex-wrap gap-3">
-        {users.map((user) => {
+        {data.map((users) => {
           return (
             <div
-              key={user.id}
+              key={users.id}
               className="card mb-3 col-lg-3  col-md-4 col-sm-8 text-center"
             >
               <div className="card-body text-danger-emphasis">
                 <h5 className="card-title fw-bold">
-                  {user.firstName} {user.lastName}
+                  {users.firstName} {users.lastName}
                 </h5>
-                 <img src={user.image} className="card-img-center"  />
-                <p className="card-text fw-small">
-                  <p>Street: {user.address?.address}</p>
-                  <p>City: {user.address?.city}</p>
-                <p>State: {user.address?.state}</p>
-                <p>Age: {user.age}</p>
-                </p>
+                <img src={users.image} className="card-img-center" />
+                <div className="card-text fw-small">
+                  <p>Street: {users.address?.address}</p>
+                  <p>City: {users.address?.city}</p>
+                  <p>State: {users.address?.state}</p>
+                  <p>Age: {users.age}</p>
+                </div>
+                <Link className='text-decoration-none text-secondary' to={`/details/${users.id}`}>Details</Link>
               </div>
             </div>
           );
