@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loader from "../../component/loader/Loader";
 import useFetch from "../../component/custom/useFetch";
 
@@ -44,6 +44,7 @@ function Details() {
           <p>Hair Color: {data.hair?.color}</p>
         </div>
       </div>
+      <Link to={"/Allusers"} className="text-decoration-none text-danger-emphasis bg-danger-subtle p-3 rounded-2 fw-bold fs-6"> Back</Link>
     </div>
   );
 }

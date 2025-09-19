@@ -23,7 +23,7 @@ function useFetch(path) {
     getAllUsers();
   }, []);
 
-  return {data,error,isloading}
+  return {data,error,isloading,setData}
 }
 
 export default useFetch
