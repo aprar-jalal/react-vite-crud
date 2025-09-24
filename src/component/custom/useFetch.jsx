@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 function useFetch(path) {
-      const [data, setData] = useState(null);
+  
+      const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [isloading, setLoader] = useState(true);
   const getAllUsers = async () => {

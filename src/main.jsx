@@ -5,10 +5,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './index.css'
 import App from './App.jsx'
+  import { ToastContainer, toast } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter> 
+  <ToastContainer/>
     <App />
   </BrowserRouter>
    

@@ -17,7 +17,7 @@ function Details() {
     );
   }
   if (error) {
-    return <p className="alert alert-danger">{error}</p>;
+    return <p className="alert alert-danger mt-3">{error}</p>;
   }
   return (
     <div className="container mt-5">

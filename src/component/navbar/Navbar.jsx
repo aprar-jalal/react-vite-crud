@@ -27,6 +27,9 @@ function Navbar() {
             <Link className="nav-link active" aria-current="page" to={"/Allusers"}>
               Users
             </Link>
+             <Link className="nav-link active" aria-current="page" to={"/createUser"}>
+              Create User
+            </Link>
             <Link className="nav-link active" aria-current="page" to={"/about"}>
               About
             </Link>
