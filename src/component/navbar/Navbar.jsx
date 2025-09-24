@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg bg-danger-subtle navbar-dark  position-fixed w-100 z-1 top-0">
       <div className="container ">
         <Link className="navbar-brand fw-bold fs-1" to={"/"}>
-          Fabulous
+          User Mangment
         </Link>
         <button
           className="navbar-toggler"
@@ -21,17 +21,11 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse  justify-content-lg-end " id="navbarNavAltMarkup">
           <div className="navbar-nav fw-bold fs-6">
-            <Link className="nav-link active" aria-current="page" to={"/"}>
-            Productes
-            </Link>
             <Link className="nav-link active" aria-current="page" to={"/Allusers"}>
               Users
             </Link>
              <Link className="nav-link active" aria-current="page" to={"/createUser"}>
               Create User
-            </Link>
-            <Link className="nav-link active" aria-current="page" to={"/about"}>
-              About
             </Link>
           </div>
         </div>
